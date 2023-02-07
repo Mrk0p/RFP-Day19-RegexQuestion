@@ -11,6 +11,8 @@ public class UserRegistration {
     static Pattern emailId = Pattern.compile("^([a-z\\.]+)([a-z]*)@([a-z]{2,}+)\\.([a-z\\.]{2,}+)([a-z]*)$");
     static Pattern mobileNumber = Pattern.compile("^(91)( )[6-9]{1,}[0-9]{9,}$");
     static Pattern passwordRule1 = Pattern.compile("^([A-za-z]{8,}+)$");
+    static Pattern passwordRule2 = Pattern.compile("^(((?=.*?[A-Z])[A-Za-z]{8,}+))$");
+
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
@@ -48,6 +50,17 @@ public class UserRegistration {
         System.out.println("Set a password with minimum 8 characters : ");
         Matcher matcher5 = passwordRule1.matcher(scanner.next());
         if(matcher5.matches()){
+            System.out.println(true);
+        }
+        else {
+            System.out.println(false);
+        }
+
+
+        System.out.println();
+        System.out.println("Set a password with minimum 8 characters and having at least one capital letter  : ");
+        Matcher matcher6 = passwordRule2.matcher(scanner.next());
+        if(matcher6.matches()){
             System.out.println(true);
         }
         else {
